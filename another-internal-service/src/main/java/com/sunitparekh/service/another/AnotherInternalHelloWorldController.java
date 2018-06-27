@@ -1,4 +1,4 @@
-package com.sunitparekh.service.internal;
+package com.sunitparekh.service.another;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -9,13 +9,13 @@ import java.util.Map;
 import java.util.logging.Logger;
 
 @RestController
-public class InternalHelloWorldController {
+public class AnotherInternalHelloWorldController {
 
-    @GetMapping("/hello-internal")
+    @GetMapping("/hello-another-internal")
     public Map<String, String> hello(@RequestParam String name) {
-        Logger.getLogger(InternalHelloWorldController.class.getName()).info("************* InternalHelloWorldController: called with name: " + name);
+        Logger.getLogger(AnotherInternalHelloWorldController.class.getName()).info("************* AnotherInternalHelloWorldController: called with name: " + name);
         return new HashMap() {{
-            put("internalService", "hello " + name);
+            put("anotherInternalService", "hello " + name);
         }};
     }
 }

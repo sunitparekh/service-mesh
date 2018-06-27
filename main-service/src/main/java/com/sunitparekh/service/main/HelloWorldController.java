@@ -27,11 +27,11 @@ public class HelloWorldController {
 
     @GetMapping("/hello")
     public Map<String, String> hello(@RequestParam String name) {
-        Logger.getLogger(HelloWorldController.class.getName()).info("************* MainService: HelloWorldController");
+        Logger.getLogger(HelloWorldController.class.getName()).info("************* HelloWorldController: called with name: " + name);
         Map result = new HashMap();
         try {
             result.putAll(Objects.requireNonNull(template.getForObject("http://" + serviceName1 + "/hello-internal?name=" + name, Map.class)));
-            result.putAll(Objects.requireNonNull(template.getForObject("http://" + serviceName2 + "/hello-another-internal/" + name, Map.class)));
+            result.putAll(Objects.requireNonNull(template.getForObject("http://" + serviceName2 + "/hello-another-internal?name=" + name, Map.class)));
         } catch (Exception e) {
             Logger.getLogger(HelloWorldController.class.getName()).severe(e.getMessage());
         }

@@ -1,4 +1,4 @@
-package com.sunitparekh.service.main.mainservice;
+package com.sunitparekh.service.main;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -30,8 +30,8 @@ public class HelloWorldController {
         Logger.getLogger(HelloWorldController.class.getName()).info("************* MainService: HelloWorldController");
         Map result = new HashMap();
         try {
-            result.putAll(Objects.requireNonNull(template.getForObject("http://" + serviceName1 + "/hello/" + name, Map.class)));
-            result.putAll(Objects.requireNonNull(template.getForObject("http://" + serviceName2 + "/hello/" + name, Map.class)));
+            result.putAll(Objects.requireNonNull(template.getForObject("http://" + serviceName1 + "/hello-internal?name=" + name, Map.class)));
+            result.putAll(Objects.requireNonNull(template.getForObject("http://" + serviceName2 + "/hello-another-internal/" + name, Map.class)));
         } catch (Exception e) {
             Logger.getLogger(HelloWorldController.class.getName()).severe(e.getMessage());
         }

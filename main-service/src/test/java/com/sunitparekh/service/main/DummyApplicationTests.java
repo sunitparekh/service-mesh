@@ -1,4 +1,4 @@
-package com.sunitparekh.service.main.mainservice;
+package com.sunitparekh.service.main;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
